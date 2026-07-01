@@ -24,5 +24,16 @@ def sort_stats(stats):
 
     return sorting_list
 
+def sort_on(stats: tuple[str, int]) -> int:
+    return stats[1]
+
 def sort_on_count(stats):
     return stats["num"]
+
+def chars_dict_to_sorted_list(chars_dict: dict[str, int]) -> list[tuple[str, int]]:
+    chars_list: list[tuple[str, int]] = []
+
+    for char in chars_dict:
+        chars_list.append((char, chars_dict[char]))
+
+    return sorted(chars_list, reverse=True, key=sort_on)
